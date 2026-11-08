@@ -15,7 +15,7 @@ const resolveEnv = (): AppConfig => {
   const isTest = process.env.NODE_ENV === 'test';
 
   const apiBaseUrl =
-    Config?.API_BASE_URL || process.env.API_BASE_URL || 'https://latexai.onrender.com/api/v1';
+    Config?.API_BASE_URL || process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
 
   const supabaseUrl =
     Config?.SUPABASE_URL || process.env.SUPABASE_URL || '';
