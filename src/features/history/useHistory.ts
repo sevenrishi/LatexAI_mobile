@@ -40,7 +40,7 @@ export function useHistoryResumes(filter: ListResumesFilter = {}) {
             : typeof item.ats_score === 'number'
             ? item.ats_score
             : item.atsScore?.score ?? item.ats_score?.score ?? null,
-        pdfUrl: item.pdfUrl || item.pdf_url || null,
+        pdfUrl: item.compiledPdfUrl || item.pdfUrl || item.pdf_url || null,
         texUrl: item.texUrl || item.tex_url || null,
         createdAt: item.createdAt || item.created_at || new Date().toISOString(),
         updatedAt: item.updatedAt || item.updated_at || new Date().toISOString(),

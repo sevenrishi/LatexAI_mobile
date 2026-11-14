@@ -21,20 +21,41 @@ export async function getResumeDownload(
     const res = await api.get<any>(`/resumes/${generationId}/download`, {
       params: { format, expiresIn: 3600 },
     });
-    return {
-      downloadUrl: res.downloadUrl || res.compiledPdfUrl || res.url,
-      filename: res.filename || `resume_${generationId}.${format}`,
-      expiresAt: res.expiresAt,
-      format,
-    };
+    const url = res.downloadUrl || res.compiledPdfUrl || res.url;
+    if (url) {
+      return {
+        downloadUrl: url,
+        filename: res.filename || res.fileName || `resume_${generationId}.${format}`,
+        expiresAt: res.expiresAt,
+        format,
+      };
+    }
   } catch (err: any) {
-    // Graceful fallback for demo or offline mode
-    return {
-      downloadUrl: `https://storage.latexai.internal/resumes/${generationId}.${format}`,
-      filename: `resume_${generationId}.${format}`,
-      format,
-    };
+    // Try fallback to /generate/:id/pdf-url if format is pdf
+    if (format === 'pdf') {
+      try {
+        const alt = await api.get<any>(`/generate/${generationId}/pdf-url`);
+        const url = alt.compiledPdfUrl || alt.downloadUrl || alt.url;
+        if (url) {
+          return {
+            downloadUrl: url,
+            filename: `resume_${generationId}.pdf`,
+            expiresAt: alt.expiresAt,
+            format: 'pdf',
+          };
+        }
+      } catch {
+        // Fallback below
+      }
+    }
   }
+
+  // Graceful fallback for demo or offline mode
+  return {
+    downloadUrl: `https://storage.latexai.internal/resumes/${generationId}.${format}`,
+    filename: `resume_${generationId}.${format}`,
+    format,
+  };
 }
 
 /**

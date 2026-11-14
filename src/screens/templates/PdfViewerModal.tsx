@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { RootStackScreenProps } from '../../types/navigation';
 import { useTheme } from '../../theme';
@@ -22,6 +22,14 @@ export const PdfViewerModal: React.FC<RootStackScreenProps<'PdfViewerModal'>> = 
 
   const handleClose = () => {
     navigation.goBack();
+  };
+
+  const handleShare = async () => {
+    if (url) {
+      try {
+        await Share.share({ title: title || 'Resume', url });
+      } catch {}
+    }
   };
 
   return (
@@ -67,7 +75,19 @@ export const PdfViewerModal: React.FC<RootStackScreenProps<'PdfViewerModal'>> = 
           </Typography>
         </View>
 
-        <View style={styles.rightPlaceholder} />
+        {url ? (
+          <TouchableOpacity
+            accessibilityLabel="Share PDF"
+            accessibilityRole="button"
+            onPress={handleShare}
+            style={styles.closeBtn}
+            testID="pdf-modal-share-button"
+          >
+            <Icon name="Share2" size={20} color={theme.colors.textPrimary} />
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.rightPlaceholder} />
+        )}
       </View>
 
       {/* PDF Canvas View */}

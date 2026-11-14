@@ -76,14 +76,14 @@ export function useGeneration(id?: string) {
         templateId: data.templateId || data.template_id,
         targetPageCount: data.targetPageCount ?? data.target_page_count ?? 1,
         pageCount: data.pageCount ?? data.page_count ?? null,
-        pdfUrl: data.pdfUrl || data.pdf_url || null,
+        pdfUrl: data.compiledPdfUrl || data.pdfUrl || data.pdf_url || null,
         texUrl: data.texUrl || data.tex_url || null,
         atsScore: rawScore,
         atsScoreResult,
         tailoredContent: data.tailoredContent || data.tailored_content || null,
         originalTailoredContent:
           data.originalTailoredContent || data.original_tailored_content || null,
-        changeSummary: data.changeSummary || data.change_summary || null,
+        changeSummary: data.changes || data.changeSummary || data.change_summary || null,
         isOutOfDate: Boolean(data.isOutOfDate ?? data.is_out_of_date ?? false),
         createdAt: data.createdAt || data.created_at,
         updatedAt: data.updatedAt || data.updated_at,
@@ -159,7 +159,7 @@ export function useRerenderGeneration() {
       return {
         id: res.id || generationId,
         status: (res.status || 'completed').toLowerCase() as GenerationStatus,
-        pdfUrl: res.pdfUrl || res.pdf_url || null,
+        pdfUrl: res.compiledPdfUrl || res.pdfUrl || res.pdf_url || null,
         texUrl: res.texUrl || res.tex_url || null,
         pageCount: res.pageCount ?? res.page_count,
         compileDurationMs: res.compileDurationMs ?? res.durationMs,
@@ -249,7 +249,7 @@ export function useResetTailoredContent() {
       return {
         id: res.id || generationId,
         status: (res.status || 'completed').toLowerCase() as GenerationStatus,
-        pdfUrl: res.pdfUrl || res.pdf_url || null,
+        pdfUrl: res.compiledPdfUrl || res.pdfUrl || res.pdf_url || null,
         message: res.message,
       };
     },
@@ -319,7 +319,7 @@ export function useGenerationStatus(
         errorCode: res.errorCode || res.error_code || null,
         completedAt: res.completedAt || res.completed_at || null,
         failedAt: res.failedAt || res.failed_at || null,
-        pdfUrl: res.pdfUrl || res.pdf_url || null,
+        pdfUrl: res.compiledPdfUrl || res.pdfUrl || res.pdf_url || null,
       };
     },
     enabled: Boolean(id) && enabled,

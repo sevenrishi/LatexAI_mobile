@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import Config from 'react-native-config';
 
 declare const process: { env: Record<string, string | undefined> };
@@ -14,8 +15,13 @@ export interface AppConfig {
 const resolveEnv = (): AppConfig => {
   const isTest = process.env.NODE_ENV === 'test';
 
-  const apiBaseUrl =
+  let apiBaseUrl =
     Config?.API_BASE_URL || process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
+
+  // Android emulator loopback fallback for localhost
+  if (Platform.OS === 'android' && apiBaseUrl.includes('localhost')) {
+    apiBaseUrl = apiBaseUrl.replace('localhost', '10.0.2.2');
+  }
 
   const supabaseUrl =
     Config?.SUPABASE_URL || process.env.SUPABASE_URL || '';
