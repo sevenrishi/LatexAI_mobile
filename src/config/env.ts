@@ -16,7 +16,9 @@ const resolveEnv = (): AppConfig => {
   const isTest = process.env.NODE_ENV === 'test';
 
   let apiBaseUrl =
-    Config?.API_BASE_URL || process.env.API_BASE_URL || 'http://localhost:4000/api/v1';
+    Config?.API_BASE_URL ||
+    process.env.API_BASE_URL ||
+    '';
 
   // Android emulator loopback fallback for localhost
   if (Platform.OS === 'android' && apiBaseUrl.includes('localhost')) {
@@ -24,10 +26,14 @@ const resolveEnv = (): AppConfig => {
   }
 
   const supabaseUrl =
-    Config?.SUPABASE_URL || process.env.SUPABASE_URL || '';
+    Config?.SUPABASE_URL ||
+    process.env.SUPABASE_URL ||
+    '';
 
   const supabaseAnonKey =
-    Config?.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '';
+    Config?.SUPABASE_ANON_KEY ||
+    process.env.SUPABASE_ANON_KEY ||
+    '';
 
   const appEnv =
     (Config?.APP_ENV as AppConfig['appEnv']) ||
