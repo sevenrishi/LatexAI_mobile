@@ -1,31 +1,31 @@
 import { Platform } from 'react-native';
 
 export const palette = {
-  // Brand colors
-  primary50: '#eff6ff',
-  primary100: '#dbeafe',
-  primary200: '#bfdbfe',
-  primary300: '#93c5fd',
-  primary400: '#60a5fa',
-  primary500: '#3b82f6',
-  primary600: '#2563eb', // Core Brand Primary
-  primary700: '#1d4ed8',
-  primary800: '#1e40af',
-  primary900: '#1e3a8a',
-  primary950: '#172554',
+  // Brand colors - Kolomly Golden Amber (#ECB12D)
+  primary50: '#fefce8',
+  primary100: '#fef3c7',
+  primary200: '#fde68a',
+  primary300: '#fcd34d',
+  primary400: '#fbbf24',
+  primary500: '#ecb12d', // Core Brand Primary (Exact Kolomly Logo Gold)
+  primary600: '#d99718', // Rich Amber Gold
+  primary700: '#b87908', // Deep Warm Gold
+  primary800: '#945e08',
+  primary900: '#75480a',
+  primary950: '#422602',
 
-  // Slate Neutrals
-  slate50: '#f8fafc',
-  slate100: '#f1f5f9',
-  slate200: '#e2e8f0',
-  slate300: '#cbd5e1',
-  slate400: '#94a3b8',
-  slate500: '#64748b',
-  slate600: '#475569',
-  slate700: '#334155',
-  slate800: '#1e293b',
-  slate900: '#0f172a',
-  slate950: '#020617',
+  // Warm Stone & Charcoal Neutrals (replaces cold blue slate)
+  slate50: '#faf9f5',
+  slate100: '#f3f1ea',
+  slate200: '#e5e1d6',
+  slate300: '#cfc9bb',
+  slate400: '#9c9586',
+  slate500: '#6f695b',
+  slate600: '#4e493e',
+  slate700: '#353129',
+  slate800: '#23201a',
+  slate900: '#171511',
+  slate950: '#0e0d0a',
 
   // Semantic Status Colors
   emerald500: '#10b981', // ATS High / Success
@@ -93,15 +93,15 @@ export interface ThemeColors {
 
 export const lightColors: ThemeColors = {
   mode: 'light',
-  primary: palette.primary600,
+  primary: palette.primary500,
   primaryLight: palette.primary100,
   primaryPressed: palette.primary700,
   primaryMuted: palette.primary100,
-  primaryText: palette.white,
-  accent: palette.cyan500,
+  primaryText: '#18150e',
+  accent: palette.primary500,
 
-  background: palette.white,
-  surface: palette.slate50,
+  background: palette.slate50,
+  surface: palette.white,
   surfaceElevated: palette.white,
   surfacePressed: palette.slate100,
 
@@ -111,7 +111,7 @@ export const lightColors: ThemeColors = {
   textInverse: palette.white,
 
   border: palette.slate200,
-  borderFocus: palette.primary600,
+  borderFocus: palette.primary500,
   borderSubtle: palette.slate100,
 
   success: palette.emerald600,
@@ -130,7 +130,7 @@ export const lightColors: ThemeColors = {
   scoreMedium: palette.amber600,
   scoreLow: palette.rose600,
 
-  overlay: 'rgba(15, 23, 42, 0.4)',
+  overlay: 'rgba(23, 21, 17, 0.4)',
   divider: palette.slate200,
   transparent: palette.transparent,
 };
@@ -138,11 +138,11 @@ export const lightColors: ThemeColors = {
 export const darkColors: ThemeColors = {
   mode: 'dark',
   primary: palette.primary500,
-  primaryLight: palette.primary800,
-  primaryPressed: palette.primary400,
-  primaryMuted: palette.primary950,
-  primaryText: palette.white,
-  accent: palette.cyan500,
+  primaryLight: 'rgba(236, 177, 45, 0.2)',
+  primaryPressed: palette.primary300,
+  primaryMuted: 'rgba(236, 177, 45, 0.15)',
+  primaryText: '#14120a',
+  accent: palette.primary400,
 
   background: palette.slate950,
   surface: palette.slate900,
@@ -150,8 +150,8 @@ export const darkColors: ThemeColors = {
   surfacePressed: palette.slate800,
 
   textPrimary: palette.slate50,
-  textSecondary: palette.slate400,
-  textMuted: palette.slate500,
+  textSecondary: palette.slate300,
+  textMuted: palette.slate400,
   textInverse: palette.slate950,
 
   border: palette.slate800,
@@ -165,7 +165,7 @@ export const darkColors: ThemeColors = {
   danger: palette.rose500,
   dangerSurface: 'rgba(239, 68, 68, 0.15)',
   error: palette.rose500,
-  primarySoft: palette.primary950,
+  primarySoft: 'rgba(236, 177, 45, 0.12)',
   info: palette.cyan500,
   infoSurface: 'rgba(6, 182, 212, 0.15)',
 
@@ -252,21 +252,21 @@ export const shadows = {
     elevation: 0,
   },
   sm: {
-    shadowColor: '#0f172a',
+    shadowColor: '#171511',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 2,
   },
   md: {
-    shadowColor: '#0f172a',
+    shadowColor: '#171511',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 4,
   },
   lg: {
-    shadowColor: '#0f172a',
+    shadowColor: '#171511',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 8,

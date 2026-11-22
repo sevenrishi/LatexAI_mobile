@@ -78,7 +78,7 @@ export const getPasswordStrength = (
     feedback = 'Fair. Add numbers and special characters.';
   } else if (criteriaMet === 3) {
     label = 'Good';
-    color = '#3b82f6'; // Blue
+    color = '#ecb12d'; // Yellowish Golden Amber matching Logo
     feedback = 'Good password. Add symbols for maximum security.';
   } else {
     label = 'Strong';
