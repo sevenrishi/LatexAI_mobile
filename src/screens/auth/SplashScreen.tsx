@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { useTheme } from '../../theme';
 import { Typography, Button, Icon } from '../../components/ui';
+import { KolomlyIcon, KolomlyLogo } from '../../components/brand';
 import { useAuthStore } from '../../store/authStore';
 
 export interface SplashScreenProps {
@@ -123,16 +124,18 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
           style={[
             styles.logoContainer,
             {
-              backgroundColor: theme.colors.primaryLight + '25',
-              borderColor: theme.colors.borderFocus,
+              backgroundColor: '#ECB12D18',
+              borderColor: '#ECB12D40',
             },
           ]}
         >
-          <Icon name="FileText" size={54} color={theme.colors.primary} />
+          <KolomlyIcon size={56} color="#ECB12D" />
         </View>
 
-        <Typography variant="h1" weight="bold" color="brand" style={styles.title}>
-          LatexAI
+        <KolomlyLogo width={210} height={79} color="#ECB12D" style={styles.brandLogo} />
+
+        <Typography variant="h1" weight="bold" color="brand" style={styles.srOnly} accessibilityRole="header">
+          Kolomly
         </Typography>
 
         <Typography
@@ -196,6 +199,16 @@ const styles = StyleSheet.create({
   },
   title: {
     letterSpacing: -0.5,
+  },
+  brandLogo: {
+    marginBottom: 4,
+  },
+  srOnly: {
+    position: 'absolute',
+    width: 1,
+    height: 1,
+    opacity: 0,
+    overflow: 'hidden',
   },
   subtitle: {
     marginTop: 8,

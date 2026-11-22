@@ -8,6 +8,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme';
 import { Typography, Button, Icon, Card } from '../../components/ui';
+import { KolomlyIcon } from '../../components/brand';
 import { supabase } from '../../lib/supabase';
 import { useUiStore } from '../../store/uiStore';
 
@@ -84,10 +85,10 @@ export const WelcomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
           <View
             style={[
               styles.iconWrapper,
-              { backgroundColor: theme.colors.primaryLight + '25' },
+              { backgroundColor: '#ECB12D18' },
             ]}
           >
-            <Icon name="FileText" size={32} color={theme.colors.primary} />
+            <KolomlyIcon size={34} color="#ECB12D" />
           </View>
           <Typography variant="overline" color="brand" weight="bold">
             LATEX RESUME PLATFORM
