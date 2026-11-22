@@ -3,19 +3,26 @@ import Svg, { Path, SvgProps } from 'react-native-svg';
 
 export interface KolomlyIconProps extends SvgProps {
   size?: number;
+  width?: number;
+  height?: number;
   color?: string;
 }
 
 export const KolomlyIcon: React.FC<KolomlyIconProps> = ({
-  size = 54,
+  size,
+  width,
+  height,
   color = '#ECB12D',
   ...rest
 }) => {
+  const h = height ?? size ?? 54;
+  const w = width ?? (typeof h === 'number' ? Math.round(h * 0.686) : h);
+
   return (
     <Svg
-      viewBox="0 0 1024 1024"
-      width={size}
-      height={size}
+      viewBox="292 153 470 685"
+      width={w}
+      height={h}
       fill="none"
       accessibilityRole="image"
       accessibilityLabel="Kolomly Icon"

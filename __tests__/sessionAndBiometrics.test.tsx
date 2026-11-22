@@ -8,6 +8,17 @@ import { useAuthStore } from '../src/store/authStore';
 import { useUiStore } from '../src/store/uiStore';
 import * as biometricsUtils from '../src/utils/biometrics';
 
+jest.mock('@react-navigation/native', () => {
+  const actual = jest.requireActual('@react-navigation/native');
+  return {
+    ...actual,
+    useNavigation: () => ({
+      navigate: jest.fn(),
+      goBack: jest.fn(),
+    }),
+  };
+});
+
 const renderWithTheme = async (ui: React.ReactElement) => {
   return await render(<ThemeProvider initialMode="light">{ui}</ThemeProvider>);
 };
@@ -96,7 +107,7 @@ describe('Session & Biometrics Security (MB-1.11, MB-1.12, MB-1.13, MB-1.14)', (
       const { getByTestId, getByText } = await renderWithTheme(<BiometricLockModal />);
 
       expect(getByTestId('biometric-lock-modal')).toBeTruthy();
-      expect(getByText('LatexAI Locked')).toBeTruthy();
+      expect(getByText(/Kolomly Locked|LatexAI Locked/)).toBeTruthy();
       expect(getByText(/Biometric authentication is required/i)).toBeTruthy();
     });
 

@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTheme } from '../../theme';
 import { Card, Icon, Typography } from '../../components/ui';
+import { KolomlyIcon, KolomlyLogo } from '../../components/brand';
 import { RootStackParamList } from '../../types/navigation';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -75,13 +76,15 @@ export const AboutScreen: React.FC = () => {
             style={[
               styles.logoBadge,
               {
-                backgroundColor: theme.colors.primaryLight + '25',
-                borderColor: theme.colors.primary,
+                backgroundColor: '#ECB12D18',
+                borderColor: '#ECB12D40',
               },
             ]}
           >
-            <Icon name="FileText" size={36} color={theme.colors.primary} />
+            <KolomlyIcon size={42} color="#ECB12D" />
           </View>
+
+          <KolomlyLogo width={180} height={68} color="#ECB12D" style={{ marginBottom: 4 }} />
 
           <Typography variant="h2" weight="bold" style={styles.heroTitle}>
             LatexAI Mobile

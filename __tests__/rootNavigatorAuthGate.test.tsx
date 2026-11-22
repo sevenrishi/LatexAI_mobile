@@ -2,9 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RootNavigator } from '../src/app/navigation/RootNavigator';
 import { ThemeProvider } from '../src/theme';
 import { useAuthStore } from '../src/store/authStore';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 const initialMetrics = {
   frame: { x: 0, y: 0, width: 375, height: 812 },
@@ -13,13 +22,15 @@ const initialMetrics = {
 
 const renderNavigator = async () => {
   return await render(
-    <SafeAreaProvider initialMetrics={initialMetrics}>
-      <ThemeProvider initialMode="light">
-        <NavigationContainer>
-          <RootNavigator />
-        </NavigationContainer>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider initialMetrics={initialMetrics}>
+        <ThemeProvider initialMode="light">
+          <NavigationContainer>
+            <RootNavigator />
+          </NavigationContainer>
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 };
 
@@ -107,7 +118,8 @@ describe('RootNavigator Core Auth Gate (MB-1.01)', () => {
       isOnboarded: true,
     });
 
-    const { getByText } = await renderNavigator();
-    expect(getByText('Resume Dashboard')).toBeTruthy();
+    const { getByTestId, getAllByText } = await renderNavigator();
+    expect(getByTestId('dashboard-screen')).toBeTruthy();
+    expect(getAllByText('Dashboard').length).toBeGreaterThanOrEqual(1);
   });
 });

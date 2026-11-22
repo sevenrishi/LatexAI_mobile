@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme';
 import { Typography, Button, Icon, Card } from '../../components/ui';
+import { KolomlyIcon } from '../../components/brand';
 import { useAuthStore } from '../../store/authStore';
 import { OnboardingStackScreenProps } from '../../types/navigation';
 
@@ -56,10 +57,14 @@ export const OnboardingWelcomeScreen: React.FC<
           <View
             style={[
               styles.iconWrapper,
-              { backgroundColor: theme.colors.primaryLight + '25' },
+              {
+                backgroundColor: '#ECB12D18',
+                borderColor: '#ECB12D40',
+                borderWidth: 1.5,
+              },
             ]}
           >
-            <Icon name="Sparkles" size={38} color={theme.colors.primary} />
+            <KolomlyIcon size={38} color="#ECB12D" />
           </View>
           <Typography variant="h1" weight="bold" align="center" style={styles.heroTitle}>
             Let's Personalize Your Resume

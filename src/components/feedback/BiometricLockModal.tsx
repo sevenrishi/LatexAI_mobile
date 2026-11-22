@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, StyleSheet, View } from 'react-native';
 import { useTheme } from '../../theme';
 import { Typography, Button, Icon } from '../ui';
+import { KolomlyIcon } from '../brand';
 import { useAuthStore } from '../../store/authStore';
 
 export const BiometricLockModal: React.FC = () => {
@@ -64,14 +65,14 @@ export const BiometricLockModal: React.FC = () => {
           <View
             style={[
               styles.iconWrapper,
-              { backgroundColor: theme.colors.primaryLight + '20' },
+              { backgroundColor: '#ECB12D18', borderColor: '#ECB12D30', borderWidth: 1 },
             ]}
           >
-            <Icon name="Lock" size={32} color={theme.colors.primary} />
+            <KolomlyIcon size={32} color="#ECB12D" />
           </View>
 
           <Typography variant="h2" weight="bold" style={styles.title}>
-            LatexAI Locked
+            Kolomly Locked
           </Typography>
 
           <Typography

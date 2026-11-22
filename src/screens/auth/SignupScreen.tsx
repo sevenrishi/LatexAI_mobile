@@ -10,6 +10,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme';
 import { Typography, TextField, Button, Icon, Card } from '../../components/ui';
+import { KolomlyIcon } from '../../components/brand';
 import { supabase } from '../../lib/supabase';
 import { useAuthStore } from '../../store/authStore';
 import { useUiStore } from '../../store/uiStore';
@@ -158,6 +159,21 @@ export const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
         {/* Title Header */}
         <View style={styles.header}>
+          <View
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: 14,
+              backgroundColor: '#ECB12D18',
+              borderWidth: 1,
+              borderColor: '#ECB12D35',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: 16,
+            }}
+          >
+            <KolomlyIcon size={26} color="#ECB12D" />
+          </View>
           <Typography variant="h1" weight="bold">
             Create Account
           </Typography>
