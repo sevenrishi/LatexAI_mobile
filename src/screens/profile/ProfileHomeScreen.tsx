@@ -150,9 +150,20 @@ export const ProfileHomeScreen: React.FC = () => {
     >
       {/* Title strip */}
       <View style={styles.titleSection}>
-        <Typography variant="h2" weight="bold">
-          Knowledge Base
-        </Typography>
+        <View style={styles.titleHeaderRow}>
+          <Typography variant="h2" weight="bold">
+            Knowledge Base
+          </Typography>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Settings')}
+            style={styles.settingsHeaderBtn}
+            accessibilityRole="button"
+            accessibilityLabel="Settings"
+            testID="btn-profile-settings"
+          >
+            <Icon name="Settings" size={22} color={theme.colors.textPrimary} />
+          </TouchableOpacity>
+        </View>
         <Typography variant="body" color="secondary" style={styles.subtitle}>
           Your unified career record used by AI to generate targeted resumes.
         </Typography>
@@ -327,6 +338,66 @@ export const ProfileHomeScreen: React.FC = () => {
           );
         })}
       </View>
+
+      {/* App & Account Settings Row */}
+      <View style={{ marginTop: 20 }}>
+        <Typography
+          variant="caption"
+          weight="bold"
+          color="secondary"
+          style={styles.sectionHeader}
+        >
+          APP PREFERENCES & ACCOUNT
+        </Typography>
+        <TouchableOpacity
+          style={[
+            styles.sectionRowItem,
+            {
+              backgroundColor: theme.colors.surfaceElevated,
+              borderColor: theme.colors.border,
+            },
+          ]}
+          onPress={() => navigation.navigate('Settings')}
+          accessibilityRole="button"
+          accessibilityLabel="App Settings and Account Management"
+          testID="profile-settings-row"
+        >
+          <View
+            style={[
+              styles.sectionIconWrap,
+              {
+                backgroundColor: `${theme.colors.primary}18`,
+              },
+            ]}
+          >
+            <Icon
+              name="Settings"
+              size={20}
+              color={theme.colors.primary}
+            />
+          </View>
+
+          <View style={styles.rowTextWrap}>
+            <Typography variant="body" weight="semibold">
+              Settings & Preferences
+            </Typography>
+            <Typography
+              variant="caption"
+              color="secondary"
+              numberOfLines={1}
+              style={styles.rowSubtitle}
+            >
+              Theme, biometrics, security, and data privacy
+            </Typography>
+          </View>
+
+          <Icon
+            name="ChevronRight"
+            size={18}
+            color={theme.colors.textMuted}
+          />
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -350,6 +421,15 @@ const styles = StyleSheet.create({
   },
   titleSection: {
     marginBottom: 16,
+  },
+  titleHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  settingsHeaderBtn: {
+    padding: 6,
+    borderRadius: 8,
   },
   subtitle: {
     marginTop: 4,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
@@ -104,18 +105,43 @@ const AuthenticatedVerifyEmailGate: React.FC<{ navigation: any; route: any }> = 
 const DashboardIcon = ({ color, size }: { color: string; size: number }) => (
   <Icon name="LayoutDashboard" size={size} color={color} />
 );
-const ProfileIcon = ({ color, size }: { color: string; size: number }) => (
-  <Icon name="User" size={size} color={color} />
+const HistoryIcon = ({ color, size }: { color: string; size: number }) => (
+  <Icon name="History" size={size} color={color} />
 );
 const TemplatesIcon = ({ color, size }: { color: string; size: number }) => (
   <Icon name="FileText" size={size} color={color} />
 );
-const HistoryIcon = ({ color, size }: { color: string; size: number }) => (
-  <Icon name="History" size={size} color={color} />
+const ProfileIcon = ({ color, size }: { color: string; size: number }) => (
+  <Icon name="User" size={size} color={color} />
 );
-const SettingsIcon = ({ color, size }: { color: string; size: number }) => (
-  <Icon name="Settings" size={size} color={color} />
-);
+
+const CreateTabPlaceholder: React.FC = () => null;
+
+const CreateTabBarButton: React.FC<{ onPress?: () => void }> = ({ onPress }) => {
+  const { theme } = useTheme();
+
+  return (
+    <View style={tabStyles.createButtonWrapper} pointerEvents="box-none">
+      <TouchableOpacity
+        activeOpacity={0.82}
+        onPress={onPress}
+        style={[
+          tabStyles.createButtonRound,
+          {
+            backgroundColor: theme.colors.primary,
+            borderColor: theme.colors.surfaceElevated,
+            shadowColor: theme.colors.primary,
+          },
+        ]}
+        accessibilityRole="button"
+        accessibilityLabel="Create New Resume"
+        testID="btn-tab-create-resume"
+      >
+        <Icon name="Plus" size={28} color="#FFFFFF" strokeWidth={2.5} />
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export const TabNavigator: React.FC = () => {
   const { theme } = useTheme();
@@ -131,42 +157,84 @@ export const TabNavigator: React.FC = () => {
         tabBarStyle: {
           backgroundColor: theme.colors.surfaceElevated,
           borderTopColor: theme.colors.border,
-          height: 60,
+          height: 62,
           paddingBottom: 8,
           paddingTop: 6,
         },
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.textMuted,
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: '500',
+        },
       }}
     >
       <Tab.Screen
         name="DashboardTab"
         component={DashboardScreen}
-        options={{ title: 'Dashboard', tabBarIcon: DashboardIcon }}
+        options={({ navigation }) => ({
+          title: 'Dashboard',
+          tabBarLabel: 'Dashboard',
+          tabBarIcon: DashboardIcon,
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => (navigation as any).navigate('Settings')}
+              style={tabStyles.headerSettingsBtn}
+              accessibilityRole="button"
+              accessibilityLabel="Settings"
+              testID="btn-header-settings"
+            >
+              <Icon name="Settings" size={22} color={theme.colors.textPrimary} />
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <Tab.Screen
+        name="HistoryTab"
+        component={HistoryScreen}
+        options={{
+          title: 'History',
+          tabBarLabel: 'History',
+          tabBarIcon: HistoryIcon,
+        }}
+      />
+      <Tab.Screen
+        name="CreateTab"
+        component={CreateTabPlaceholder}
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            (navigation as any).navigate('NewGeneration', {});
+          },
+        })}
+        options={({ navigation }) => ({
+          title: 'New Resume',
+          tabBarLabel: () => null,
+          tabBarButton: () => (
+            <CreateTabBarButton
+              onPress={() => (navigation as any).navigate('NewGeneration', {})}
+            />
+          ),
+        })}
+      />
+      <Tab.Screen
+        name="TemplatesTab"
+        component={TemplatesScreen}
+        options={{
+          title: 'Templates',
+          tabBarLabel: 'Templates',
+          tabBarIcon: TemplatesIcon,
+        }}
       />
       <Tab.Screen
         name="ProfileTab"
         component={ProfileNavigator}
         options={{
           title: 'Profile',
+          tabBarLabel: 'Profile',
           tabBarIcon: ProfileIcon,
           headerShown: false,
         }}
-      />
-      <Tab.Screen
-        name="TemplatesTab"
-        component={TemplatesScreen}
-        options={{ title: 'Templates', tabBarIcon: TemplatesIcon }}
-      />
-      <Tab.Screen
-        name="HistoryTab"
-        component={HistoryScreen}
-        options={{ title: 'History', tabBarIcon: HistoryIcon }}
-      />
-      <Tab.Screen
-        name="SettingsTab"
-        component={SettingsScreen}
-        options={{ title: 'Settings', tabBarIcon: SettingsIcon }}
       />
     </Tab.Navigator>
   );
@@ -326,6 +394,42 @@ export const RootNavigator: React.FC = () => {
         component={ErrorFallbackScreen as any}
         options={{ presentation: 'modal' }}
       />
+      <RootStack.Screen
+        name="Settings"
+        component={SettingsScreen as any}
+        options={{ headerShown: true, title: 'Settings' }}
+      />
+      <RootStack.Screen
+        name="SettingsTab"
+        component={SettingsScreen as any}
+        options={{ headerShown: true, title: 'Settings' }}
+      />
     </RootStack.Navigator>
   );
 };
+
+const tabStyles = StyleSheet.create({
+  createButtonWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: -16,
+  },
+  createButtonRound: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 3,
+    elevation: 8,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+  },
+  headerSettingsBtn: {
+    marginRight: 16,
+    padding: 6,
+    borderRadius: 8,
+  },
+});

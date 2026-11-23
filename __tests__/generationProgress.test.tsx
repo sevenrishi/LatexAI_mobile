@@ -414,7 +414,9 @@ describe('Phase E/F: JD Analysis & Tailoring (Client Integration)', () => {
         return {};
       });
 
-      const { findByTestId } = await renderScreen();
+      const { findByTestId, findByText } = await renderScreen();
+
+      await findByText('Resume Ready');
 
       const closeBtn = await findByTestId('btn-close-progress');
       fireEvent.press(closeBtn);

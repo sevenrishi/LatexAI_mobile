@@ -28,12 +28,14 @@ export const linking: LinkingOptions<RootStackParamList> = {
       AppTabs: {
         screens: {
           DashboardTab: 'dashboard',
-          ProfileTab: 'profile',
+          HistoryTab: 'resumes',
+          CreateTab: 'create',
           TemplatesTab: 'templates',
-          HistoryTab: 'history',
+          ProfileTab: 'profile',
           SettingsTab: 'settings',
         },
       },
+      Settings: 'settings-view',
       NewGeneration: 'generate',
       GenerationProgress: 'generation/:generationId',
       Review: 'review/:generationId',

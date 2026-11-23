@@ -54,17 +54,8 @@ export const OnboardingWelcomeScreen: React.FC<
 
         {/* Hero Section */}
         <View style={styles.heroSection}>
-          <View
-            style={[
-              styles.iconWrapper,
-              {
-                backgroundColor: '#ECB12D18',
-                borderColor: '#ECB12D40',
-                borderWidth: 1.5,
-              },
-            ]}
-          >
-            <KolomlyIcon size={38} color="#ECB12D" />
+          <View style={styles.iconWrapper}>
+            <KolomlyIcon size={46} color="#ECB12D" />
           </View>
           <Typography variant="h1" weight="bold" align="center" style={styles.heroTitle}>
             Let's Personalize Your Resume
@@ -182,9 +173,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   iconWrapper: {
-    width: 72,
-    height: 72,
-    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,

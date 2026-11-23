@@ -120,16 +120,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({
           },
         ]}
       >
-        <View
-          style={[
-            styles.logoContainer,
-            {
-              backgroundColor: '#ECB12D18',
-              borderColor: '#ECB12D40',
-            },
-          ]}
-        >
-          <KolomlyIcon size={56} color="#ECB12D" />
+        <View style={styles.logoContainer}>
+          <KolomlyIcon size={64} color="#ECB12D" />
         </View>
 
         <KolomlyLogo width={210} height={79} color="#ECB12D" style={styles.brandLogo} />
@@ -189,13 +181,9 @@ const styles = StyleSheet.create({
     maxWidth: 340,
   },
   logoContainer: {
-    width: 96,
-    height: 96,
-    borderRadius: 28,
-    borderWidth: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 20,
   },
   title: {
     letterSpacing: -0.5,

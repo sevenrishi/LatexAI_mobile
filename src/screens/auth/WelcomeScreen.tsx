@@ -82,13 +82,8 @@ export const WelcomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
       >
         {/* Header / Brand Badge */}
         <View style={styles.header}>
-          <View
-            style={[
-              styles.iconWrapper,
-              { backgroundColor: '#ECB12D18' },
-            ]}
-          >
-            <KolomlyIcon size={34} color="#ECB12D" />
+          <View style={styles.iconWrapper}>
+            <KolomlyIcon size={42} color="#ECB12D" />
           </View>
           <Typography variant="overline" color="brand" weight="bold">
             LATEX RESUME PLATFORM
@@ -239,12 +234,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   iconWrapper: {
-    width: 64,
-    height: 64,
-    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
   },
   heroTitle: {
     marginTop: 8,

@@ -12,13 +12,17 @@ export interface AppConfig {
   sentryDsn?: string;
 }
 
+const DEFAULT_API_BASE_URL = 'https://latexai.onrender.com/api/v1';
+const DEFAULT_SUPABASE_URL = 'https://vkbmxgftqeezzxabzgja.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_3nRVTJ0wVDn4AO8UyDrdCA_uEdLsx50';
+
 const resolveEnv = (): AppConfig => {
   const isTest = process.env.NODE_ENV === 'test';
 
   let apiBaseUrl =
     Config?.API_BASE_URL ||
     process.env.API_BASE_URL ||
-    '';
+    (isTest ? 'https://api.latexai.internal/api/v1' : DEFAULT_API_BASE_URL);
 
   // Android emulator loopback fallback for localhost
   if (Platform.OS === 'android' && apiBaseUrl.includes('localhost')) {
@@ -28,16 +32,16 @@ const resolveEnv = (): AppConfig => {
   const supabaseUrl =
     Config?.SUPABASE_URL ||
     process.env.SUPABASE_URL ||
-    '';
+    DEFAULT_SUPABASE_URL;
 
   const supabaseAnonKey =
     Config?.SUPABASE_ANON_KEY ||
     process.env.SUPABASE_ANON_KEY ||
-    '';
+    DEFAULT_SUPABASE_ANON_KEY;
 
   const appEnv =
     (Config?.APP_ENV as AppConfig['appEnv']) ||
-    (isTest ? 'test' : 'development');
+    (isTest ? 'test' : 'production');
 
   const enableMocks =
     Config?.ENABLE_MOCKS === 'true' ||

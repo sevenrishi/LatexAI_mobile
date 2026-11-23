@@ -43,10 +43,11 @@ export type ProfileStackParamList = {
 
 export type AppTabParamList = {
   DashboardTab: undefined;
-  ProfileTab: NavigatorScreenParams<ProfileStackParamList> | undefined;
-  TemplatesTab: undefined;
   HistoryTab: undefined;
-  SettingsTab: undefined;
+  CreateTab: undefined;
+  TemplatesTab: undefined;
+  ProfileTab: NavigatorScreenParams<ProfileStackParamList> | undefined;
+  SettingsTab?: undefined;
 };
 
 export type RootStackParamList = {
@@ -55,6 +56,8 @@ export type RootStackParamList = {
   VerifyEmail: { email: string; token?: string };
   Onboarding: NavigatorScreenParams<OnboardingStackParamList> | undefined;
   AppTabs: NavigatorScreenParams<AppTabParamList>;
+  Settings: undefined;
+  SettingsTab: undefined;
   NewGeneration: { fromGenerationId?: string };
   GenerationProgress: { generationId: string };
   Review: { generationId: string };

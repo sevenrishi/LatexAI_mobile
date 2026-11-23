@@ -62,13 +62,8 @@ export const BiometricLockModal: React.FC = () => {
           accessibilityRole="alertdialog"
           accessibilityLabel="App is Locked"
         >
-          <View
-            style={[
-              styles.iconWrapper,
-              { backgroundColor: '#ECB12D18', borderColor: '#ECB12D30', borderWidth: 1 },
-            ]}
-          >
-            <KolomlyIcon size={32} color="#ECB12D" />
+          <View style={styles.iconWrapper}>
+            <KolomlyIcon size={42} color="#ECB12D" />
           </View>
 
           <Typography variant="h2" weight="bold" style={styles.title}>
@@ -122,12 +117,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconWrapper: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 16,
   },
   title: {
     marginBottom: 8,

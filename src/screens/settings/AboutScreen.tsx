@@ -72,16 +72,8 @@ export const AboutScreen: React.FC = () => {
       >
         {/* App Hero */}
         <View style={styles.heroSection}>
-          <View
-            style={[
-              styles.logoBadge,
-              {
-                backgroundColor: '#ECB12D18',
-                borderColor: '#ECB12D40',
-              },
-            ]}
-          >
-            <KolomlyIcon size={42} color="#ECB12D" />
+          <View style={styles.logoBadge}>
+            <KolomlyIcon size={52} color="#ECB12D" />
           </View>
 
           <KolomlyLogo width={180} height={68} color="#ECB12D" style={{ marginBottom: 4 }} />
@@ -228,13 +220,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   logoBadge: {
-    width: 64,
-    height: 64,
-    borderRadius: 20,
-    borderWidth: 1.5,
-    alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    alignItems: 'center',
+    marginBottom: 16,
   },
   heroTitle: {
     marginBottom: 4,

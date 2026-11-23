@@ -121,5 +121,27 @@ describe('RootNavigator Core Auth Gate (MB-1.01)', () => {
     const { getByTestId, getAllByText } = await renderNavigator();
     expect(getByTestId('dashboard-screen')).toBeTruthy();
     expect(getAllByText('Dashboard').length).toBeGreaterThanOrEqual(1);
+    expect(getByTestId('btn-tab-create-resume')).toBeTruthy();
+  });
+
+  it('renders the 5-tab bar with the center round create resume button', async () => {
+    useAuthStore.setState({
+      isSplashFinished: true,
+      isAuthenticated: true,
+      user: {
+        id: 'usr_active',
+        email: 'active@example.com',
+        emailVerified: true,
+        name: 'Active User',
+        createdAt: '2026-01-01',
+      },
+      isOnboarded: true,
+    });
+
+    const { getByTestId, getByText } = await renderNavigator();
+    expect(getByTestId('btn-tab-create-resume')).toBeTruthy();
+    expect(getByText('History')).toBeTruthy();
+    expect(getByText('Templates')).toBeTruthy();
+    expect(getByText('Profile')).toBeTruthy();
   });
 });
