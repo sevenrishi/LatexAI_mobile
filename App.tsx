@@ -1,5 +1,5 @@
 /**
- * LatexAI Mobile Application Entry Point
+ * Kolomly Mobile Application Entry Point
  * Bare workflow React Native client
  *
  * @format

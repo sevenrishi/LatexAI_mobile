@@ -129,7 +129,7 @@ export const OnboardingGoalsScreen: React.FC<
             Goals & Preferred Style
           </Typography>
           <Typography variant="body" color="secondary" style={styles.subtitle}>
-            Select your main goals so LatexAI can optimize your ATS recommendations.
+            Select your main goals so Kolomly can optimize your ATS recommendations.
           </Typography>
         </View>
 
@@ -172,9 +172,9 @@ export const OnboardingGoalsScreen: React.FC<
                       styles.templateCard,
                       isSelected
                         ? {
-                            borderColor: theme.colors.primary,
-                            backgroundColor: theme.colors.primaryLight + '10',
-                          }
+                          borderColor: theme.colors.primary,
+                          backgroundColor: theme.colors.primaryLight + '10',
+                        }
                         : undefined,
                     ]}
                   >

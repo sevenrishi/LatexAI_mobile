@@ -18,8 +18,8 @@ export async function requestNotificationPermission(): Promise<boolean> {
         const granted = await PermissionsAndroid.request(
           'android.permission.POST_NOTIFICATIONS' as any,
           {
-            title: 'LatexAI Generation Alerts',
-            message: 'Allow LatexAI to notify you when your tailored resume completes compiling.',
+            title: 'Kolomly Generation Alerts',
+            message: 'Allow Kolomly to notify you when your tailored resume completes compiling.',
             buttonPositive: 'Allow',
             buttonNegative: 'Not Now',
           }

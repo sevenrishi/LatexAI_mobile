@@ -6,7 +6,7 @@ This document outlines the standard operating procedure for upgrading the bare-w
 
 ## 1. Upgrade Philosophy & Versioning Matrix
 
-The LatexAI mobile client uses the React Native bare workflow with the React Native Community CLI. Upgrades should be conducted conservatively, typically staying on the latest stable minor release and applying security patches immediately.
+The Kolomly mobile client uses the React Native bare workflow with the React Native Community CLI. Upgrades should be conducted conservatively, typically staying on the latest stable minor release and applying security patches immediately.
 
 ### Tooling Baseline (Current v0.87.1)
 - **Node.js**: `^22.13.0` or `>=24.0.0` (Node 22 LTS or Node 23 supported)
@@ -29,7 +29,7 @@ Inspect all changes across:
 - `android/build.gradle` and `android/app/build.gradle`
 - `android/gradle/wrapper/gradle-wrapper.properties`
 - `ios/Podfile`
-- `ios/LatexAI.xcodeproj`
+- `ios/Kolomly.xcodeproj`
 - `metro.config.js` and `babel.config.js`
 
 ### Step 2: Create a Dedicated Upgrade Branch

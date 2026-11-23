@@ -399,7 +399,7 @@ export const AtsCheckerScreen: React.FC = () => {
 
             {/* CTA to Tailor */}
             <Button
-              title="Tailor with LatexAI Engine"
+              title="Tailor with Kolomly Engine"
               variant="secondary"
               leftIcon={<Icon name="Sparkles" size={16} color={theme.colors.textPrimary} />}
               onPress={() => navigation.navigate('NewGeneration', {})}

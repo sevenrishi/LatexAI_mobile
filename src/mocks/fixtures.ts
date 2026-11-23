@@ -88,7 +88,7 @@ export const mockProfile: UserProfile = {
   projects: [
     {
       id: 'proj_1',
-      name: 'LatexAI Resume Engine',
+      name: 'Kolomly Resume Engine',
       description: 'AI-tailored resume compiler leveraging pdflatex sandboxing and ATS optimization heuristics.',
       technologies: ['React Native', 'TypeScript', 'Node.js', 'pdflatex'],
       url: 'https://github.com/alexmorgan/latexai',
@@ -361,7 +361,7 @@ export const mockTailoredContent = {
   projects: [
     {
       id: 'proj_1',
-      name: 'LatexAI Resume Engine',
+      name: 'Kolomly Resume Engine',
       description: 'AI-tailored resume compiler leveraging pdflatex sandboxing and ATS optimization heuristics.',
       technologies: ['React Native', 'TypeScript', 'Node.js', 'pdflatex'],
       url: 'https://github.com/alexmorgan/latexai',

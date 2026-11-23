@@ -70,7 +70,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
     setBiometricsLocked: (isBiometricsLocked) => set({ isBiometricsLocked }),
 
     unlockWithBiometrics: async () => {
-      const authenticated = await authenticateWithBiometrics('Unlock LatexAI');
+      const authenticated = await authenticateWithBiometrics('Unlock Kolomly');
       if (authenticated) {
         set({ isBiometricsLocked: false });
         return true;
@@ -97,7 +97,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
               onboardingData: data,
             },
           });
-        } catch {}
+        } catch { }
 
         set({ isOnboarded: true, isLoading: false });
       } catch (err: any) {
@@ -152,12 +152,12 @@ export const useAuthStore = create<AuthState>((set, get) => {
         // Clear secure keychain tokens
         try {
           await removeSecureItem('sb_supabase.auth.token');
-        } catch {}
+        } catch { }
 
         // Clear TanStack query caches
         try {
           queryClient.clear();
-        } catch {}
+        } catch { }
 
         // Reset navigation stack to Auth
         try {

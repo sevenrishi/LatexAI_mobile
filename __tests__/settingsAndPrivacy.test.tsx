@@ -228,7 +228,7 @@ describe('Phase J: Settings, Privacy, About & ATS Checker (MB-6.03 to MB-6.08)',
       const { findByTestId, findByText, getByTestId } = await renderWithTheme(<AboutScreen />);
 
       expect(await findByTestId('about-screen')).toBeTruthy();
-      expect(await findByText('LatexAI Mobile')).toBeTruthy();
+      expect(await findByText('Kolomly Mobile')).toBeTruthy();
       expect(await findByText('XeLaTeX 2026 Microservice')).toBeTruthy();
       expect(await findByText('1.0.0 (Build 42)')).toBeTruthy();
 

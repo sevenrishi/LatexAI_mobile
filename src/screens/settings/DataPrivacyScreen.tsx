@@ -65,9 +65,9 @@ export const DataPrivacyScreen: React.FC = () => {
           : filePath;
 
       await Share.share({
-        title: 'LatexAI Data Archive',
+        title: 'Kolomly Data Archive',
         url: fileUri,
-        message: 'Here is your exported LatexAI account and resume data.',
+        message: 'Here is your exported Kolomly account and resume data.',
       });
 
       showToast({

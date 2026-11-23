@@ -174,7 +174,7 @@ export const ResetPasswordScreen: React.FC<{ navigation: any; route: any }> = ({
             </Typography>
 
             <Button
-              title="Sign In to LatexAI"
+              title="Sign In to Kolomly"
               variant="primary"
               fullWidth
               onPress={() => navigation.navigate('Login')}

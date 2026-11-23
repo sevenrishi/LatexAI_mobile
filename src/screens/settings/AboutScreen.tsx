@@ -32,7 +32,7 @@ export const AboutScreen: React.FC = () => {
     };
     Alert.alert(
       titles[type],
-      `LatexAI ensures confidentiality and privacy in accordance with GDPR and CCPA standards. For full disclosures, visit https://latexai.internal/legal/${type}.`
+      `Kolomly ensures confidentiality and privacy in accordance with GDPR and CCPA standards. For full disclosures, visit https://latexai.internal/legal/${type}.`
     );
   };
 
@@ -62,7 +62,7 @@ export const AboutScreen: React.FC = () => {
         </TouchableOpacity>
 
         <Typography variant="body" weight="bold" style={styles.headerTitle}>
-          About LatexAI
+          About Kolomly
         </Typography>
       </View>
 
@@ -87,7 +87,7 @@ export const AboutScreen: React.FC = () => {
           <KolomlyLogo width={180} height={68} color="#ECB12D" style={{ marginBottom: 4 }} />
 
           <Typography variant="h2" weight="bold" style={styles.heroTitle}>
-            LatexAI Mobile
+            Kolomly Mobile
           </Typography>
           <Typography variant="bodySm" color="secondary" style={styles.heroSub}>
             Autonomous AI Resume Tailoring & ATS Intelligence Engine

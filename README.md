@@ -1,6 +1,6 @@
-# LatexAI Mobile Application
+# Kolomly Mobile Application
 
-The cross-platform mobile companion for **LatexAI**, built with React Native. Create, edit, and optimize ATS-friendly LaTeX resumes, preview compiled PDFs, and run AI tailoring directly from Android and iOS devices.
+The cross-platform mobile companion for **Kolomly**, built with React Native. Create, edit, and optimize ATS-friendly LaTeX resumes, preview compiled PDFs, and run AI tailoring directly from Android and iOS devices.
 
 ---
 
@@ -73,7 +73,7 @@ cp .env.example .env.development
 
 | Key | Description | Android Emulator | iOS Simulator / Physical Device |
 | :--- | :--- | :--- | :--- |
-| `API_BASE_URL` | LatexAI backend API base URL | `http://10.0.2.2:4000/api/v1` | `http://localhost:4000/api/v1` |
+| `API_BASE_URL` | Kolomly backend API base URL | `http://10.0.2.2:4000/api/v1` | `http://localhost:4000/api/v1` |
 | `SUPABASE_URL` | Supabase project URL | `https://your-project.supabase.co` | `https://your-project.supabase.co` |
 | `SUPABASE_ANON_KEY` | Public Supabase anon key | `your-anon-key` | `your-anon-key` |
 | `APP_ENV` | Environment identifier | `development` | `development` |

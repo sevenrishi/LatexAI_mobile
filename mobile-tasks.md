@@ -8,7 +8,7 @@ After completing each task check the respective boxes like this - [x]
 
 ## Phase 0 — Project Foundation
 
-- [x] MB-0.01 - Scaffold project via `npx @react-native-community/cli@latest init LatexAI` (TypeScript template), set bundle ID/package name, and document native tooling setup (Node 20+, JDK 17, Android SDK, Xcode, CocoaPods)
+- [x] MB-0.01 - Scaffold project via `npx @react-native-community/cli@latest init Kolomly` (TypeScript template), set bundle ID/package name, and document native tooling setup (Node 20+, JDK 17, Android SDK, Xcode, CocoaPods)
 - [x] MB-0.02 - Configure tooling: ESLint (`@react-native/eslint-config`), Prettier, TypeScript strict mode, path aliases, and Jest + RNTL
 - [x] MB-0.03 - Establish folder structure (`src/{app,screens/{auth,onboarding,dashboard,profile,templates,generate,history,settings,system},components/{ui,forms,pdf,feedback},features,lib,store,theme,utils,types,mocks}`)
 - [x] MB-0.04 - Install and natively link core dependencies: `react-native-screens`, `react-native-safe-area-context`, `react-native-gesture-handler`, `react-native-reanimated`, and `@react-navigation/*`; run `pod install` and verify builds

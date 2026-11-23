@@ -70,7 +70,7 @@ export const setBiometricsEnabled = async (enabled: boolean): Promise<boolean> =
 };
 
 export const authenticateWithBiometrics = async (
-  promptMessage = 'Authenticate to access LatexAI'
+  promptMessage = 'Authenticate to access Kolomly'
 ): Promise<boolean> => {
   try {
     if (typeof Keychain.getGenericPassword !== 'function') {

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "LatexAI.app"
-               BlueprintName = "LatexAI"
-               ReferencedContainer = "container:LatexAI.xcodeproj">
+               BuildableName = "Kolomly.app"
+               BlueprintName = "Kolomly"
+               ReferencedContainer = "container:Kolomly.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "LatexAITests.xctest"
-               BlueprintName = "LatexAITests"
-               ReferencedContainer = "container:LatexAI.xcodeproj">
+               BuildableName = "KolomlyTests.xctest"
+               BlueprintName = "KolomlyTests"
+               ReferencedContainer = "container:Kolomly.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LatexAI.app"
-            BlueprintName = "LatexAI"
-            ReferencedContainer = "container:LatexAI.xcodeproj">
+            BuildableName = "Kolomly.app"
+            BlueprintName = "Kolomly"
+            ReferencedContainer = "container:Kolomly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LatexAI.app"
-            BlueprintName = "LatexAI"
-            ReferencedContainer = "container:LatexAI.xcodeproj">
+            BuildableName = "Kolomly.app"
+            BlueprintName = "Kolomly"
+            ReferencedContainer = "container:Kolomly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

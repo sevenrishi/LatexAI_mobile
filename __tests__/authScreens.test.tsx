@@ -47,7 +47,7 @@ describe('Auth Screens (MB-1.03, MB-1.04, MB-1.05)', () => {
         <SplashScreen minDurationMs={100} />
       );
 
-      expect(getByText(/Kolomly|LatexAI/)).toBeTruthy();
+      expect(getByText(/Kolomly|Kolomly/)).toBeTruthy();
       expect(getByText('AI-Powered ATS LaTeX Resumes')).toBeTruthy();
       expect(getByTestId('splash-loader')).toBeTruthy();
     });

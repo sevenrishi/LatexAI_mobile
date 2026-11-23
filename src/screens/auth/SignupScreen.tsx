@@ -109,7 +109,7 @@ export const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       showToast({
         type: 'success',
         title: 'Account Created',
-        message: 'Welcome to LatexAI!',
+        message: 'Welcome to Kolomly!',
       });
 
       // If session is present directly (email auto-confirm enabled in dev)

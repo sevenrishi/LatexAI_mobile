@@ -205,7 +205,7 @@ export const SettingsScreen: React.FC = () => {
           <View style={styles.userDetails}>
             <View style={styles.userNameRow}>
               <Typography variant="body" weight="bold" numberOfLines={1}>
-                {user?.name || 'LatexAI Candidate'}
+                {user?.name || 'Kolomly Candidate'}
               </Typography>
               {user?.emailVerified && (
                 <View
@@ -328,7 +328,7 @@ export const SettingsScreen: React.FC = () => {
                 </Typography>
                 <Typography variant="caption" color="secondary">
                   {biometryStatus.supported
-                    ? `Require ${biometryTypeLabel} when opening LatexAI`
+                    ? `Require ${biometryTypeLabel} when opening Kolomly`
                     : 'Biometrics not available on this device'}
                 </Typography>
               </View>
@@ -486,7 +486,7 @@ export const SettingsScreen: React.FC = () => {
               </View>
               <View style={styles.settingTextGroup}>
                 <Typography variant="body" weight="medium">
-                  About LatexAI
+                  About Kolomly
                 </Typography>
                 <Typography variant="caption" color="secondary">
                   Version 1.0.0, XeLaTeX engine, Terms & Privacy
@@ -525,7 +525,7 @@ export const SettingsScreen: React.FC = () => {
       {/* App Info Footer */}
       <View style={styles.footer}>
         <Typography variant="caption" color="secondary" style={styles.footerText}>
-          LatexAI Mobile v1.0.0
+          Kolomly Mobile v1.0.0
         </Typography>
         <Typography variant="caption" color="muted" style={styles.footerSubtext}>
           Bare React Native Community CLI • High Reliability Engine
